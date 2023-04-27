@@ -1,13 +1,8 @@
-# project
-RnDiffLib/
-
 # macOS
 .DS_Store
 
-# node
-node_modules/
-
-# git worktree
-wt-lib
-wt-diffs
-yarn-error.log
+# lock files
+react-native-awesome-lib/yarn.lock
+react-native-awesome-lib/package-lock.json
+react-native-awesome-lib/Gemfile.lock
+react-native-awesome-lib/ios/Podfile.lock
