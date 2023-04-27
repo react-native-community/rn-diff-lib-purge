@@ -6,7 +6,7 @@ ErrorReleaseExists=2
 ErrorReleaseArgMissing=3
 ErrorReleaseTagExists=4
 
-LibName=RnDiffLib
+LibName=awesome-lib
 LibBaseBranch=lib-base
 ReleasesFile=RELEASES
 ReadmeFile=README.md
@@ -35,7 +35,7 @@ function guardExisting () {
 }
 
 function prepare () {
-    # This git config setting, in combination with the `.gitattributes` file, tells the scripts to not pay attention to some files that don't need to be in the diffs, like the root `.gitignore` of this repo (not the RnDiffLib project).
+    # This git config setting, in combination with the `.gitattributes` file, tells the scripts to not pay attention to some files that don't need to be in the diffs, like the root `.gitignore` of this repo (not the react-native-awesome-lib project).
     git config --local diff.nodiff.command true
     git pull
     yarn install
@@ -56,9 +56,18 @@ function generateNewReleaseBranch () {
     git checkout -b "$branchName"
 
     # generate lib
-   npx react-native init "$LibName" --version "$newRelease" --skip-install
+   npx create-react-native-library@latest "$LibName" \
+     --slug react-native-"$LibName" \
+     --description "an awesome RN library" \
+     --author-name me \
+     --author-email me@email.com \
+     --author-url https://example.com \
+     --repo-url https://example.com \
+     --type module-new \
+     --languages kotlin-objc
 
     # commit and push branch
+    rm -rf "$LibName"/.git
     git add "$LibName"
     git commit -m "Release $newRelease"
     git push origin --delete "$branchName" || git push origin "$branchName"

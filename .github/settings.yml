@@ -1,0 +1,7 @@
+repository:
+  name: rn-diff-lib-purge
+  description: "Easier React Native library upgrades by clearly exposing changes from a version to another. :rocket: And what better way than to purge, init, then diff? Spoiler: there's no better way. 😎"
+  homepage: https://react-native-community.github.io/upgrade-helper/library
+  topics: react-native, purge, upgrade, rn-diff, react-native-library, rn-diff-purge, upgrade-helper, rn-diff-lib, rn-diff-lib-purge
+
+  has_wiki: false

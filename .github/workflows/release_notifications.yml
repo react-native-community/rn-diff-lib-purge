@@ -1,0 +1,17 @@
+name: Send notifications when a new release is published
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release_notifications:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: git clone --single-branch --branch master --depth 1 https://${{secrets.GITHUB_TOKEN}}@github.com/${{ github.repository }}.git .
+      - name: Notify upgrade-support of a new release
+        uses: ./actions/notifyNewRelease
+        with:
+          github-token: ${{ secrets.SPECIAL_GITHUB_TOKEN }}
