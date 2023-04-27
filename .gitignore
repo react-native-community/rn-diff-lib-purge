@@ -1,0 +1,13 @@
+# project
+RnDiffLib/
+
+# macOS
+.DS_Store
+
+# node
+node_modules/
+
+# git worktree
+wt-lib
+wt-diffs
+yarn-error.log
